@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+
+    <div id="app">
+        <div id="header_div">
+            <h1 @click="toggleParamDevmode" class="headertext">{{ header1 }}</h1>
+            <div class="switchtext_div">
+                <p class="switchtext">Отобразить товары:</p>
+                <p class="switchtext" v-if="outputQuantity != 2" @click="setQuantity2">2</p>
+                <p class="switchtext underlined" v-if="outputQuantity == 2">2</p>
+                <p class="switchtext" v-if="outputQuantity != 3" @click="setQuantity3">3</p>
+                <p class="switchtext underlined" v-if="outputQuantity == 3">3</p>
+                <p class="switchtext" v-if="outputQuantity != 4" @click="setQuantity4">4</p>
+                <p class="switchtext underlined" v-if="outputQuantity == 4">4</p>
+                <p class="switchtext" v-if="outputQuantity != 5" @click="setQuantity5">5</p>
+                <p class="switchtext underlined" v-if="outputQuantity == 5">5</p>
+                <p class="switchtext" v-if="outputQuantity != 6" @click="setQuantity6">6</p>
+                <p class="switchtext underlined" v-if="outputQuantity == 6">6</p>
+            </div>
+
+        </div>
+        <div class="checkbox_div">
+            <div class="checkbox_div_1">
+                <input type="checkbox" id="checkbox" @change="checkboxEvent" v-model="isChecked">
+                <p class="switchtext">Показать различия</p>
+            </div>
+        </div>
+        <div class="devmode_button_div" v-if="devmode">
+            <button class="devbutton" @click="toggleParamManufacturer">
+                toggle manufacturer
+            </button>
+            <button class="devbutton" @click="toggleParamReleaseYear">
+                toggle releaseYear
+            </button>
+            <button class="devbutton" @click="toggleParamScreenSize">
+                toggle screenSize
+            </button>
+            <button class="devbutton" @click="toggleParamManufcountry">
+                toggle manufcountry
+            </button>
+            <button class="devbutton" @click="toggleParamDisksize">
+                toggle disksize
+            </button>
+            <button class="devbutton" @click="toggleParamScreenFPS">
+                toggle screenFPS
+            </button>
+            <button class="devbutton" @click="toggleParamNFC">
+                toggle nfc
+            </button>
+            <button class="devbutton" @click="toggleParamESIMSupport">
+                toggle esimSupport
+            </button>
+            <button class="devbutton" @click="toggleParamWirelessCharge">
+                toggle wirelessCharge
+            </button>
+            <button class="devbutton" @click="toggleParamPrice">
+                toggle price
+            </button>
+        </div>
+        <div id="phonetable_container_div">
+        <div id="phonetable_div">
+            <div class="phone_div phone_runame_div mark_div_0">
+                <div class="paramdiv" v-if="showName">
+                    <p class="paramtext paramrutext hiddentext">
+                        {{ param_runame.name }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showManufacturer">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.manufacturer }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showReleaseYear">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.releaseYear }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showScreenSize">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.screenSize }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showManufcountry">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.manufcountry }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showDisksize">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.disksize }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showScreenFPS">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.screenFPS }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showNFC">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.nfc }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showESIMSupport">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.esimSupport }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showWirelessCharge">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.wirelessCharge }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showPrice">
+                    <p class="paramtext paramrutext">
+                        {{ param_runame.price }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+            </div>
+            <div class="phone_div mark_div_0" v-for="elem in phonesOutput">
+                <div class="paramdiv" v-if="showName">
+                    <p class="paramtext">
+                        {{ elem.name }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showManufacturer">
+                    <p class="paramtext">
+                        {{ elem.manufacturer }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showReleaseYear">
+                    <p class="paramtext">
+                        {{ elem.releaseYear }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showScreenSize">
+                    <p class="paramtext">
+                        {{ elem.screenSize }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showManufcountry">
+                    <p class="paramtext">
+                        {{ elem.manufcountry }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showDisksize">
+                    <p class="paramtext">
+                        {{ elem.disksize }} Гб
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showScreenFPS">
+                    <p class="paramtext">
+                        {{ elem.screenFPS }} Гц
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showNFC">
+                    <p class="paramtext">
+                        {{ elem.nfc }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showESIMSupport">
+                    <p class="paramtext">
+                        {{ elem.esimSupport }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showWirelessCharge">
+                    <p class="paramtext">
+                        {{ elem.wirelessCharge }}
+                    </p>
+                    <hr class="horiline">
+                </div>
+                <div class="paramdiv" v-if="showPrice">
+                    <p class="paramtext">
+                        {{ elem.price }} ₽
+                    </p>
+                    <hr class="horiline">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

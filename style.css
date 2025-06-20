@@ -1,0 +1,115 @@
+
+
+.mark_div_0 {
+    border: 0px;
+}
+.mark_div_1 {
+    border: 1px solid #ff0000;
+}
+.mark_div_2 {
+    border: 1px solid #00ff00;
+}
+.mark_div_3 {
+    border: 1px solid #0000ff;
+}
+
+#app {
+    min-width: 1250px;
+}
+
+#phonetable_div {
+    background-color: rgb(244, 249, 252);
+    display: flex;
+    justify-content: center;
+}
+
+.paramdiv {
+    width: 270px;
+    height: 110px;
+}
+
+.paramtext {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 18px;
+    height: 40px;
+}
+
+.headertext {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 48px;
+    color: #828286;
+    margin: 10px;
+}
+
+.switchtext {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 24px;
+    margin: 5px;
+    color: #0D5ADC;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+#header_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox_div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox_div_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#checkbox {
+    transform: scale(2);
+    margin: 10px;
+}
+
+.switchtext_div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.paramrutext {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #A4A9B9;
+}
+
+.phone_div {
+}
+
+.hiddentext {
+    opacity: 0;
+}
+
+.devbutton {
+    width: 320px;
+    height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 30px;
+    margin: 2px;
+}
+
+.devmode_button_div {
+    height: fit-content;
+    padding: 5px;
+    width: 1620px;/*
+    align-items: center;*/
+    display: block;
+}
+
+.horiline {
+    color: #CDCFD2;
+}
